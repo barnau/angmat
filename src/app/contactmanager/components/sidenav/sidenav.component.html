@@ -1,0 +1,25 @@
+
+<mat-sidenav-container class="app-sidenav-container">
+  <!-- mat-elevation-z10 causes shadow -->
+  <!-- mode over causes sidenav to run over main content -->
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"
+              [opened]="!isScreenSmall()"
+              [mode]="isScreenSmall() ? 'over' : 'side'">
+    <mat-toolbar color="primary">
+      Contacts
+    </mat-toolbar>
+    <mat-list>
+        <mat-list-item> Pepper </mat-list-item>
+        <mat-list-item> Salt </mat-list-item>
+        <mat-list-item> Paprika </mat-list-item>
+       </mat-list>
+  </mat-sidenav>
+
+  <div class="app-sidenav-content">
+    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</mat-sidenav-container>
